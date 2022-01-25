@@ -18,7 +18,6 @@ hive.config.set('alternative_api_endpoints', [
 
 const ssc = new SSC('https://api.hive-engine.com/rpc/');
 
-
 window.onload = function() {
     getAccDetails();         
 };
