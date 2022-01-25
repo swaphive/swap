@@ -3,22 +3,24 @@
     <head>
         <title>Swap Hive</title>
         <!--css-->
-        <link rel="icon" href="ASSETS/icon.png" />
-        <link rel="stylesheet" href="CSS/main.css" />
-        <link rel="stylesheet" href="CSS/libs/darcula.css" />
 
         <!--scripts--> 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sscjs@latest/dist/ssc.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@hiveio/hive-js/dist/hive.min.js"></script>
         <script src="assets/js/hive.min.js"></script>
         <script src="assets/js/hive_keychain.js"></script>
-        <script src="assets/scripts/load.js"></script>
+        <script src="assets/scripts/load.js"></script>       
         
-        <script>
-            window.onload = function() {
-                alert("Hello All");
-            };
+        <script>     
+            
+            
         </script>
-        <body>HELLO WORLD 2</body>
+        <body>
+            <div>
+                <button type="button" class="" onclick="getAccDetails()">Test</button>
+                <span id="accDetails" style="color: #000000;">NaN</span>
+            </div>
+        </body>
     </head>
 </html>
