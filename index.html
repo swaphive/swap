@@ -10,16 +10,44 @@
         <script src="https://cdn.jsdelivr.net/npm/@hiveio/hive-js/dist/hive.min.js"></script>
         <script src="assets/js/hive.min.js"></script>
         <script src="assets/js/hive_keychain.js"></script>
-        <script src="assets/scripts/load.js"></script>       
-        
-        <script>     
-            
-            
-        </script>
+        <script src="assets/scripts/loadAccount.js"></script> 
+        <script src="assets/scripts/checkAccount.js"></script>
+
         <body>
             <div>
-                <button type="button" class="" onclick="getAccDetails()">Test</button>
-                <span id="accDetails" style="color: #000000;">NaN</span>
+                <div>
+                    <div>
+                        <div><p>Check Your Balance</p></div>
+                        <div>
+                            <input type="text" class="" placeholder="HIVE Username..." id="getHiveUserName">
+                            <button type="button" class="" id="getButtonUserName" onclick="checkUserNameFieldIsEmpty()">Refresh</button>    
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span id="checkHiveDetails" style="color: #000000;">NaN</span><span> HIVE</span>
+                        </div>
+                        <div>
+                            <span id="checkSwapHiveDetails" style="color: #000000;">NaN</span><span> SWAP.HIVE</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><p>@HIVEUPME Liquidity</p></div>
+                        <div>
+                            <button type="button" class="" onclick="refreshBalances()">Refresh</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span id="hiveDetails" style="color: #000000;">NaN</span><span> HIVE</span>
+                        </div>
+                        <div>
+                            <span id="swaphiveDetails" style="color: #000000;">NaN</span><span> SWAP.HIVE</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </body>
     </head>
