@@ -2,7 +2,6 @@ var DECIMAL = 1000;
 
 function hiveSwapProcessInitiate()
 {
-    console.log("Here I am");
     try
     {
         var swapTo = "hiveupme";
@@ -17,16 +16,15 @@ function hiveSwapProcessInitiate()
         {
             if (response["success"] == true) 
             {
-                var successString = "You Sent : " + swapAmount + " " + swapSymbol + " To : @" + swapTo + " Successfully...!!!";
-                console.log("successString : ", successString);
-                //document.getElementById("swapKeyChainError").innerHTML = successString;
+                var successString = "You Sent : " + swapAmount + " " + swapSymbol + " To : @" + swapTo + " Successfully...!!!";                
+                document.getElementById("hiveTransferMsg").innerHTML = successString;
+                refreshUserData();
             } 
             else 
             {
                 var failString = "Token Swap Process Failed, Please Try Again...!!!";
-                //document.getElementById("swapKeyChainError").innerHTML = failString;
-                console.log("failString : ", failString);
-                console.log("response : ", response);
+                document.getElementById("swapKeyChainError").innerHTML = failString;
+                refreshUserData();               
             }
         }, false);
     }

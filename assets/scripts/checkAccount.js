@@ -70,7 +70,8 @@ async function checkUserNameFieldIsEmpty () {
     try
     {
         var getNameValue = document.getElementById("getHiveUserName").value;
-        if (getNameValue == "" || getNameValue == null) {
+        if (getNameValue == "" || getNameValue == null) 
+        {
             alert("Name must be filled out");            
         }
         else
@@ -83,5 +84,21 @@ async function checkUserNameFieldIsEmpty () {
     catch (error)
     {
         console.log("Error at checkUserNameFieldIsEmpty() : ", error);
+    }
+}
+
+function refreshUserData() {
+    try 
+    {
+        if (getNameValue != "" || getNameValue != null) 
+        {
+            checkSwapHiveAccDetails();
+            checkHiveAccDetails();
+            checkVaultAccDetails();
+        }
+    } 
+    catch (error) 
+    {
+        console.log("Error at refreshUserData() : ", error);
     }
 }
