@@ -1,4 +1,5 @@
 var DECIMAL = 1000;
+var VAULTDECIMAL = 100;
 
 async function checkSwapHiveAccDetails () {
     try
@@ -43,6 +44,28 @@ async function checkHiveAccDetails () {
     }
 }
 
+async function checkVaultAccDetails () {
+    try
+    {
+        var swapUserName = document.getElementById("getHiveUserName").value;
+        let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUserName, 'symbol': 'VAULT'});
+        if(swapHiveData != null)
+        {        
+            var swapHiveBalance = parseFloat(swapHiveData.balance) || 0.0;
+            swapHiveBalance = Math.floor(swapHiveBalance * VAULTDECIMAL) / VAULTDECIMAL;
+            document.getElementById("checkVaultDetails").innerHTML = swapHiveBalance;
+        }
+        else
+        {
+            document.getElementById("checkVaultDetails").innerHTML = 0.0;
+        }
+    }
+    catch(error)
+    {
+        console.log("Error at checkVaultAccDetails() : ", error);
+    }
+};
+
 async function checkUserNameFieldIsEmpty () {
     try
     {
@@ -54,6 +77,7 @@ async function checkUserNameFieldIsEmpty () {
         {
             checkSwapHiveAccDetails();
             checkHiveAccDetails();
+            checkVaultAccDetails();
         }
     }
     catch (error)

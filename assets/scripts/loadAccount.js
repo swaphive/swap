@@ -4,7 +4,8 @@ var DECIMAL = 1000;
 
 window.onload = async function() {
     hiveAccDetails(); 
-    swapHiveAccDetails();        
+    swapHiveAccDetails();
+    hideSwapButtons();        
 };
 
 async function swapHiveAccDetails () {
@@ -58,6 +59,20 @@ async function refreshBalances()
     catch (error) 
     {
         console.log("Error at refreshBalances() : ", error);
+    }
+}
+
+async function hideSwapButtons() 
+{
+    try 
+    {
+        document.getElementById("hiveSwapProcess").disabled = true;
+        document.getElementById("swaphiveSwapProcess").disabled = true;
+        document.getElementById("vaultSwapProcess").disabled = true;
+    } 
+    catch (error) 
+    {
+        console.log("Error at hideSwapButtons() : ", error);
     }
 }
 

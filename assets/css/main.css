@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed&display=swap');
+body, html {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    user-select: none;
+    font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+}
+
+.container, .row, .col {
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
+}
+
+.row {
+    background-color: #8a8a8a;
+    overflow: hidden;
+    padding: 1% 0 0 1%;
+}
+
+.col1, .col3 {
+    width: 24%;
+    background:blue;
+    display:inline-block;
+    margin: 1%;
+    border-style: solid;
+    float: left;
+}
+
+.col2 {
+    width: 44%;
+    background:blue;
+    display:inline-block;
+    margin: 1%;
+    border-style: solid;
+    float: left;
+}
+
+.col1row {
+    background-color: #027b8b;
+    overflow: hidden;
+    padding: 1%;
+}
+
+.col2row {
+    background-color: #027b8b;
+    overflow: hidden;
+    padding: 1%;
+}
+
+.col3row {
+    background-color: #027b8b;
+    overflow: hidden;
+    padding: 1%;
+}

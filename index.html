@@ -3,48 +3,115 @@
     <head>
         <title>Swap Hive</title>
         <!--css-->
-
+        <link rel="stylesheet" href="assets/css/main.css" />
         <!--scripts--> 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sscjs@latest/dist/ssc.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@hiveio/hive-js/dist/hive.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="assets/js/hive.min.js"></script>
         <script src="assets/js/hive_keychain.js"></script>
         <script src="assets/scripts/loadAccount.js"></script> 
         <script src="assets/scripts/checkAccount.js"></script>
+        <script src="assets/scripts/swapValues.js"></script>
+        <script src="assets/scripts/swapProcess.js"></script>
 
         <body>
-            <div>
-                <div>
-                    <div>
-                        <div><p>Check Your Balance</p></div>
-                        <div>
-                            <input type="text" class="" placeholder="HIVE Username..." id="getHiveUserName">
-                            <button type="button" class="" id="getButtonUserName" onclick="checkUserNameFieldIsEmpty()">Refresh</button>    
+            <div class="container">
+                <div class="row">
+                    <div class="col1">
+                        <div class="col1row">
+                            <div><p>Check Your Balance</p></div>
+                            <div>
+                                <input type="text" class="" placeholder="HIVE Username..." id="getHiveUserName">
+                                <button type="button" class="" id="getButtonUserName" onclick="checkUserNameFieldIsEmpty()">Refresh</button>    
+                            </div>
+                        </div>
+                        <div class="col1row">
+                            <div>
+                                <span id="checkHiveDetails" style="color: #000000;" onclick="onClickHive()">NaN</span><span> HIVE</span>
+                            </div>
+                            <div>
+                                <span id="checkSwapHiveDetails" style="color: #000000;" onclick="onClickSwapHive()">NaN</span><span> SWAP.HIVE</span>
+                            </div>
+                            <div>
+                                <span id="checkVaultDetails" style="color: #000000;" onclick="onClickVault()">NaN</span><span> VAULT</span>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <span id="checkHiveDetails" style="color: #000000;">NaN</span><span> HIVE</span>
+                    <div class="col2">
+                        <div class="col2row">
+                            <p>Swap Your Liquidity</p>
                         </div>
-                        <div>
-                            <span id="checkSwapHiveDetails" style="color: #000000;">NaN</span><span> SWAP.HIVE</span>
+                        <div class="col2row">
+                            <div><p>Add HIVE Liquidity</p></div>
+                            <div>
+                                <div>
+                                    <input type="text" class="" placeholder="Swap Amount..." id="goHive" onkeyup="hiveSwapChange()">
+                                    <span> HIVE</span>
+                                    <button type="button" class="" id="hiveSwapProcess" onclick="hiveSwapProcessInitiate()">Swap</button>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>Total Received : </span><span id="hiveReceived">NaN</span><span> SWAP.HIVE</span>
+                                    </div>
+                                    <div>
+                                        <span>Fee : </span><span id="hiveFee">NaN</span><span> SWAP.HIVE</span>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col2row">
+                            <div><p>Add SWAP.HIVE Liquidity</p></div>
+                            <div>
+                                <div>
+                                    <input type="text" class="" placeholder="Swap Amount..." id="goSwapHive" onkeyup="swaphiveSwapChange()">
+                                    <span> SWAP.HIVE</span>
+                                    <button type="button" class="" id="swaphiveSwapProcess" onclick="swaphiveSwapProcessInitiate()">Swap</button>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>Total Received : </span><span id="swaphiveReceived">NaN</span><span> HIVE</span>
+                                    </div>
+                                    <div>
+                                        <span>Fee : </span><span id="swaphiveFee">NaN</span><span> HIVE</span>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col2row">
+                            <div><p>Add VAULT Liquidity</p></div>
+                            <div>
+                                <div>
+                                    <input type="text" class="" placeholder="Swap Amount..." id="goVault" onkeyup="vaultSwapChange()">
+                                    <span> VAULT</span>
+                                    <button type="button" class="" id="vaultSwapProcess" onclick="vaultSwapProcessInitiate()">Swap</button>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>Total Received : </span><span id="vaultReceived">NaN</span><span> HIVE</span>
+                                    </div>
+                                    <div>
+                                        <span>Fee : </span><span id="vaultFee">NaN</span><span> HIVE</span>
+                                    </div>
+                                </div>                                 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <div><p>@HIVEUPME Liquidity</p></div>
-                        <div>
-                            <button type="button" class="" onclick="refreshBalances()">Refresh</button>
+                    <div class="col3">
+                        <div class="col3row">
+                            <div><p>@HIVEUPME Liquidity</p></div>
+                            <div>
+                                <button type="button" class="" onclick="refreshBalances()">Refresh</button>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div>
-                            <span id="hiveDetails" style="color: #000000;">NaN</span><span> HIVE</span>
-                        </div>
-                        <div>
-                            <span id="swaphiveDetails" style="color: #000000;">NaN</span><span> SWAP.HIVE</span>
+                        <div class="col3row">
+                            <div>
+                                <span id="hiveDetails" style="color: #000000;">NaN</span><span> HIVE</span>
+                            </div>
+                            <div>
+                                <span id="swaphiveDetails" style="color: #000000;">NaN</span><span> SWAP.HIVE</span>
+                            </div>
                         </div>
                     </div>
                 </div>
