@@ -11,6 +11,7 @@ function hiveSwapProcessInitiate()
         var swapAmount = document.getElementById("goHive").value;
         swapAmount = parseFloat(swapAmount) || 0.0;
         swapAmount = Math.floor(swapAmount * DECIMAL) / DECIMAL;        
+        swapAmount = swapAmount.toFixed(3);
         
         hive_keychain.requestTransfer(swapUsername, swapTo, swapAmount, "Swapping To Swap.Hive", swapSymbol, function(response) 
         {
