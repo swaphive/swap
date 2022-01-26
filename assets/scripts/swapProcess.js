@@ -25,6 +25,7 @@ function hiveSwapProcessInitiate()
                 var failString = "Token Swap Process Failed, Please Try Again...!!!";
                 //document.getElementById("swapKeyChainError").innerHTML = failString;
                 console.log("failString : ", failString);
+                console.log("response : ", response);
             }
         }, false);
     }
