@@ -10,13 +10,8 @@ function hiveSwapProcessInitiate()
         var swapUsername = document.getElementById("getHiveUserName").value.toLowerCase();
         var swapAmount = document.getElementById("goHive").value;
         swapAmount = parseFloat(swapAmount) || 0.0;
-        swapAmount = Math.floor(swapAmount * DECIMAL) / DECIMAL;
+        swapAmount = Math.floor(swapAmount * DECIMAL) / DECIMAL;        
         
-        hive_keychain.requestHandshake(function () 
-        {
-            console.log("Handshake received!");
-        });
-        /*
         hive_keychain.requestTransfer(swapUsername, swapTo, swapAmount, "Swapping To Swap.Hive", swapSymbol, function(response) 
         {
             if (response["success"] == true) 
@@ -32,7 +27,6 @@ function hiveSwapProcessInitiate()
                 console.log("failString : ", failString);
             }
         }, false);
-        */
     }
     catch(error)
     {
