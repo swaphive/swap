@@ -16,13 +16,13 @@ function hiveSwapProcessInitiate()
         {
             if (response["success"] == true) 
             {
-                var successString = "You Sent : " + swapAmount + " " + swapSymbol + " To : @" + swapTo + " Successfully...!!!";                
+                var successString = "You sent : " + swapAmount + " " + swapSymbol + " to : @" + swapTo + " successfully...!!!";                
                 document.getElementById("hiveTransferMsg").innerHTML = successString;
                 refreshUserData();
             } 
             else 
             {
-                var failString = "Token Swap Process Failed, Please Try Again...!!!";
+                var failString = "Token swap process failed, please try again...!!!";
                 document.getElementById("swapKeyChainError").innerHTML = failString;
                 refreshUserData();               
             }
