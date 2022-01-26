@@ -16,14 +16,13 @@ body, html {
 }
 
 .row {
-    background-color: #8a8a8a;
+    background-color: #1e1e1e;
     overflow: hidden;
     padding: 1% 0 0 1%;
 }
 
 .col1, .col3 {
     width: 24%;
-    background:blue;
     display:inline-block;
     margin: 1%;
     border-style: solid;
@@ -32,7 +31,6 @@ body, html {
 
 .col2 {
     width: 44%;
-    background:blue;
     display:inline-block;
     margin: 1%;
     border-style: solid;
@@ -40,19 +38,51 @@ body, html {
 }
 
 .col1row {
-    background-color: #027b8b;
+    background-color: #cf0520;
     overflow: hidden;
     padding: 1%;
 }
 
 .col2row {
-    background-color: #027b8b;
+    background-color: #016977;
     overflow: hidden;
     padding: 1%;
 }
 
 .col3row {
-    background-color: #027b8b;
+    background-color: #02548b;
     overflow: hidden;
     padding: 1%;
+}
+
+.row1col {
+    background-color: #1e1e1e;
+    overflow: hidden;
+    padding: 1%;
+}
+
+.row1colp {
+    font-size: 24pt;
+}
+
+.row3col {
+    width: 30%;
+    background-color: #2e2e2e;
+    display:inline-block;
+    margin: 1%;
+    float: left;
+    height: 50px;
+    text-align: right;
+    font-size: 10pt;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.spancol {
+    font-size: 10pt;
+    padding-top: 1%;
+}
+
+a {
+    color: #807e7e;
 }

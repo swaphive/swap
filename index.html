@@ -18,6 +18,9 @@
 
         <body>
             <div class="container">
+                <div class="row">                    
+                    <p class="row1colp">@HIVEUPME Swap Script</p>                    
+                </div>
                 <div class="row">
                     <div class="col1">
                         <div class="col1row">
@@ -28,14 +31,14 @@
                             </div>
                         </div>
                         <div class="col1row">
-                            <div>
-                                <span id="checkHiveDetails" style="color: #000000;" onclick="onClickHive()">NaN</span><span> HIVE</span>
+                            <div class="spancol">
+                                <span id="checkHiveDetails" style="color: #bb9898;" onclick="onClickHive()">NaN</span><span> HIVE</span>
                             </div>
-                            <div>
-                                <span id="checkSwapHiveDetails" style="color: #000000;" onclick="onClickSwapHive()">NaN</span><span> SWAP.HIVE</span>
+                            <div class="spancol">
+                                <span id="checkSwapHiveDetails" style="color: #bb9898;" onclick="onClickSwapHive()">NaN</span><span> SWAP.HIVE</span>
                             </div>
-                            <div>
-                                <span id="checkVaultDetails" style="color: #000000;" onclick="onClickVault()">NaN</span><span> VAULT</span>
+                            <div class="spancol">
+                                <span id="checkVaultDetails" style="color: #bb9898;" onclick="onClickVault()">NaN</span><span> VAULT</span>
                             </div>
                         </div>
                     </div>
@@ -44,7 +47,7 @@
                             <p>Swap Your Liquidity</p>
                         </div>
                         <div class="col2row">
-                            <div><p>Add HIVE Liquidity</p></div>
+                            <div><p style="color: #c4bbbb;">Add HIVE Liquidity</p></div>
                             <div>
                                 <div>
                                     <input type="text" class="" placeholder="Swap Amount..." id="goHive" onkeyup="hiveSwapChange()">
@@ -52,20 +55,20 @@
                                     <button type="button" class="" id="hiveSwapProcess" onclick="hiveSwapProcessInitiate()">Swap</button>
                                 </div>
                                 <div>
-                                    <div>
-                                        <span>Total Received : </span><span id="hiveReceived">NaN</span><span> SWAP.HIVE</span>
+                                    <div class="spancol">
+                                        <span >Total Received : </span><span id="hiveReceived">NaN</span><span > SWAP.HIVE</span>
                                     </div>
-                                    <div>
+                                    <div class="spancol">
                                         <span>Fee : </span><span id="hiveFee">NaN</span><span> SWAP.HIVE</span>
                                     </div>
-                                    <div>
+                                    <div class="spancol">
                                         <span id="hiveTransferMsg"></span>
                                     </div>
                                 </div> 
                             </div>
                         </div>
                         <div class="col2row">
-                            <div><p>Add SWAP.HIVE Liquidity</p></div>
+                            <div><p style="color: #c4bbbb;">Add SWAP.HIVE Liquidity</p></div>
                             <div>
                                 <div>
                                     <input type="text" class="" placeholder="Swap Amount..." id="goSwapHive" onkeyup="swaphiveSwapChange()">
@@ -73,20 +76,20 @@
                                     <button type="button" class="" id="swaphiveSwapProcess" onclick="swaphiveSwapProcessInitiate()">Swap</button>
                                 </div>
                                 <div>
-                                    <div>
+                                    <div class="spancol">
                                         <span>Total Received : </span><span id="swaphiveReceived">NaN</span><span> HIVE</span>
                                     </div>
-                                    <div>
+                                    <div class="spancol">
                                         <span>Fee : </span><span id="swaphiveFee">NaN</span><span> HIVE</span>
                                     </div>
-                                    <div>
+                                    <div class="spancol">
                                         <span id="swaphiveTransferMsg"></span>
                                     </div>
                                 </div>                                
                             </div>
                         </div>
                         <div class="col2row">
-                            <div><p>Add VAULT Liquidity</p></div>
+                            <div><p style="color: #c4bbbb;">Add VAULT Liquidity</p></div>
                             <div>
                                 <div>
                                     <input type="text" class="" placeholder="Swap Amount..." id="goVault" onkeyup="vaultSwapChange()">
@@ -94,13 +97,13 @@
                                     <button type="button" class="" id="vaultSwapProcess" onclick="vaultSwapProcessInitiate()">Swap</button>
                                 </div>
                                 <div>
-                                    <div>
+                                    <div class="spancol">
                                         <span>Total Received : </span><span id="vaultReceived">NaN</span><span> HIVE</span>
                                     </div>
-                                    <div>
+                                    <div class="spancol">
                                         <span>Fee : </span><span id="vaultFee">NaN</span><span> HIVE</span>
                                     </div>
-                                    <div>
+                                    <div class="spancol">
                                         <span id="vaultTransferMsg"></span>
                                     </div>
                                 </div>                                 
@@ -115,14 +118,25 @@
                             </div>
                         </div>
                         <div class="col3row">
-                            <div>
-                                <span id="hiveDetails" style="color: #000000;">NaN</span><span> HIVE</span>
+                            <div class="spancol">
+                                <span id="hiveDetails" style="color: #c4bbbb;">NaN</span><span> HIVE</span>
                             </div>
-                            <div>
-                                <span id="swaphiveDetails" style="color: #000000;">NaN</span><span> SWAP.HIVE</span>
+                            <div class="spancol">
+                                <span id="swaphiveDetails" style="color: #c4bbbb;">NaN</span><span> SWAP.HIVE</span>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="row3col" style="text-align: left;">                    
+                        <p>Swap Fee = 0.1% for HIVE / SWAP.HIVE & Swap Fee = 0.0% for VAULT</p>                        
+                    </div>
+                    <div class="row3col" style="text-align: left;">
+                        <p>Minimum Swap Amount = 1 HIVE / 1 SWAP.HIVE / 1 VAULT</p>
+                    </div>
+                    <div class="row3col" style="text-align: left;">
+                        <p><a href="https://discord.com/invite/XYMrvyr" target="_blank">Contact Us @ Discord</a></p>
+                    </div>                   
                 </div>
             </div>
         </body>
