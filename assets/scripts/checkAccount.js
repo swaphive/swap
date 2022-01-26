@@ -90,6 +90,7 @@ async function checkUserNameFieldIsEmpty () {
 function refreshUserData() {
     try 
     {
+        var getNameValue = document.getElementById("getHiveUserName").value;
         if (getNameValue != "" || getNameValue != null) 
         {
             checkSwapHiveAccDetails();
