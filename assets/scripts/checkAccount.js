@@ -72,7 +72,7 @@ async function checkUserNameFieldIsEmpty () {
         var getNameValue = document.getElementById("getHiveUserName").value;
         if (getNameValue == "" || getNameValue == null) 
         {
-            alert("Name must be filled out");            
+            alert("Please Add Your HIVE Username");            
         }
         else
         {
