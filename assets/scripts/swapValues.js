@@ -164,6 +164,7 @@ async function enableSwapHiveButton() {
         
         var swapAmount = document.getElementById("goSwapHive").value;
         swapAmount = parseFloat(swapAmount) || 0.0;
+        document.getElementById("swaphiveTransferMsg").innerHTML = "";
 
         if(swapAmount >= 1.0 && hiveBalance >= swapAmount)
         {
@@ -254,6 +255,7 @@ async function enableVaultButton() {
         
         var swapAmount = document.getElementById("goVault").value;
         swapAmount = parseFloat(swapAmount) || 0.0;
+        document.getElementById("vaultTransferMsg").innerHTML = "";
 
         if(swapAmount >= 1.0 && hiveBalance >= swapAmount)
         {
