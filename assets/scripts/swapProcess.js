@@ -23,7 +23,7 @@ function hiveSwapProcessInitiate()
             else 
             {
                 var failString = "Token swap process failed, please try again...!!!";
-                document.getElementById("swapKeyChainError").innerHTML = failString;
+                document.getElementById("hiveTransferMsg").innerHTML = failString;
                 refreshUserData();               
             }
         }, false);

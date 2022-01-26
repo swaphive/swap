@@ -75,6 +75,7 @@ async function enableHiveButton() {
         
         var swapAmount = document.getElementById("goHive").value;
         swapAmount = parseFloat(swapAmount) || 0.0;
+        document.getElementById("hiveTransferMsg").innerHTML = "";
 
         if(swapAmount >= 1.0 && hiveBalance >= swapAmount)
         {
