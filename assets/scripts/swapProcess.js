@@ -77,7 +77,7 @@ function vaultSwapProcessInitiate()
         var swapTo = "hiveupme";
         var tokenSymbol = "VAULT";
         var swapUsername = document.getElementById("getHiveUserName").value.toLowerCase();
-        var swapAmount = document.getElementById("goVaultHive").value;
+        var swapAmount = document.getElementById("goVault").value;
         swapAmount = parseFloat(swapAmount) || 0.0;
         swapAmount = Math.floor(swapAmount * DECIMAL) / DECIMAL;        
         swapAmount = swapAmount.toFixed(3);
