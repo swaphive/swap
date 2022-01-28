@@ -20,12 +20,14 @@ function hiveSwapProcessInitiate()
                 var successString = "You sent : " + swapAmount + " " + swapSymbol + " to : @" + swapTo + " successfully...!!!";                
                 document.getElementById("hiveTransferMsg").innerHTML = successString;
                 refreshUserData();
+                document.getElementById("hiveSwapProcess").disabled = true;
             } 
             else 
             {
                 var failString = "Token swap process failed, please try again...!!!";
                 document.getElementById("hiveTransferMsg").innerHTML = failString;
-                refreshUserData();               
+                refreshUserData();
+                document.getElementById("hiveSwapProcess").disabled = true;               
             }
         }, false);
     }
@@ -55,12 +57,14 @@ function swaphiveSwapProcessInitiate()
                 var successString = "You sent : " + swapAmount + " " + tokenSymbol + " to : @" + swapTo + " successfully...!!!";
                 document.getElementById("swaphiveTransferMsg").innerHTML = successString;
                 refreshUserData();
+                document.getElementById("swaphiveSwapProcess").disabled = true;
             } 
             else 
             {
                 var failString = "Token swap process failed, please try again...!!!";
                 document.getElementById("hiveTransferMsg").innerHTML = failString;
-                refreshUserData();   
+                refreshUserData();
+                document.getElementById("swaphiveSwapProcess").disabled = true;   
             }
         }, false);
     }
@@ -90,12 +94,14 @@ function vaultSwapProcessInitiate()
                 var successString = "You sent : " + swapAmount + " " + tokenSymbol + " to : @" + swapTo + " successfully...!!!";
                 document.getElementById("vaultTransferMsg").innerHTML = successString;
                 refreshUserData();
+                document.getElementById("vaultSwapProcess").disabled = true;
             } 
             else 
             {
                 var failString = "Token swap process failed, please try again...!!!";
                 document.getElementById("vaultTransferMsg").innerHTML = failString;
-                refreshUserData();   
+                refreshUserData(); 
+                document.getElementById("vaultSwapProcess").disabled = true;  
             }
         }, false);
     }
