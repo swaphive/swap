@@ -236,8 +236,8 @@ async function vaultSwapFee(swapAmount) {
         var swapRatio = 10;
         swapAmount = parseFloat(swapAmount) || 0.0;
         swapAmount = swapAmount / swapRatio;
-        var totalFee = Math.floor((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
-        var totalReceived = Math.floor((swapAmount - totalFee) * DECIMAL) / DECIMAL;
+        var totalFee = Math.floor((feePercentage) * DECIMAL) / DECIMAL;
+        var totalReceived = Math.floor((swapAmount) * DECIMAL) / DECIMAL;
         document.getElementById("vaultReceived").innerHTML = totalReceived;
         document.getElementById("vaultFee").innerHTML = totalFee;
     } 
@@ -271,4 +271,3 @@ async function enableVaultButton() {
         console.log("Error at enableVaultButton() : ", error);
     }
 }
-
