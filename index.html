@@ -25,31 +25,45 @@
                 </div>
                 <div class="row">
                     <div class="col1">
-                        <div class="col1row">
-                            <div><p>Check Your Balance</p></div>
-                            <div>
-                                <input type="text" class="" placeholder="HIVE Username..." id="getHiveUserName">
-                                <button type="button" class="" id="getButtonUserName" onclick="checkUserNameFieldIsEmpty()">Check Balance</button>    
+                        <div>
+                            <div class="col1row">
+                                <div><p>Check Your Balance</p></div>
+                                <div>
+                                    <input type="text" class="" placeholder="HIVE Username..." id="getHiveUserName">
+                                    <button type="button" class="" id="getButtonUserName" onclick="checkUserNameFieldIsEmpty()">Check Balance</button>    
+                                </div>
+                            </div>
+                            <div class="col1row">
+                                <div class="spancol">
+                                    <span id="checkHiveDetails" style="color: #bb9898;" onclick="onClickHive()">NaN</span><span> HIVE</span>
+                                </div>
+                                <div class="spancol">
+                                    <span id="checkSwapHiveDetails" style="color: #bb9898;" onclick="onClickSwapHive()">NaN</span><span> SWAP.HIVE</span>
+                                </div>
+                                <div class="spancol">
+                                    <span id="checkVaultDetails" style="color: #bb9898;" onclick="onClickVault()">NaN</span><span> VAULT</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="col1row">
-                            <div class="spancol">
-                                <span id="checkHiveDetails" style="color: #bb9898;" onclick="onClickHive()">NaN</span><span> HIVE</span>
-                            </div>
-                            <div class="spancol">
-                                <span id="checkSwapHiveDetails" style="color: #bb9898;" onclick="onClickSwapHive()">NaN</span><span> SWAP.HIVE</span>
-                            </div>
-                            <div class="spancol">
-                                <span id="checkVaultDetails" style="color: #bb9898;" onclick="onClickVault()">NaN</span><span> VAULT</span>
-                            </div>
+                        <div class="row1col1" style="text-align: left;">                    
+                            <p style="color: #c4bbbb; text-align: left;">Swap Fee = 0.1% for HIVE</p>                        
+                        </div>
+                        <div class="row1col1" style="text-align: left;">                    
+                            <p style="color: #c4bbbb; text-align: left;">Swap Fee = 0.1% for SWAP.HIVE</p>                        
+                        </div>
+                        <div class="row1col1" style="text-align: left;">                    
+                            <p style="color: #c4bbbb; text-align: left;">Swap Fee = 0.0% for VAULT</p>                        
                         </div>
                     </div>
                     <div class="col2">
                         <div class="col2row">
                             <p>Swap Your Liquidity</p>
+                            <div style="text-align: left; font-size: 10pt;">
+                                <p style="color: #c4bbbb;">Minimum Swap Amount = 1 HIVE / 1 SWAP.HIVE / 1 VAULT</p>
+                            </div>
                         </div>
                         <div class="col2row">
-                            <div><p style="color: #c4bbbb;">Swap HIVE Liquidity</p></div>
+                            <div><p style="color: #c4bbbb;">Swap HIVE Liquidity</p></div>                            
                             <div>
                                 <div>
                                     <input type="text" class="" placeholder="Swap Amount..." id="goHive" onkeyup="hiveSwapChange()">
@@ -113,32 +127,26 @@
                         </div>
                     </div>
                     <div class="col3">
-                        <div class="col3row">
-                            <div><p>@HIVEUPME Available Liquidity</p></div>
-                            <div>
-                                <button type="button" class="" onclick="refreshBalances()">Refresh</button>
+                        <div>
+                            <div class="col3row">
+                                <div><p>@HIVEUPME Available Liquidity</p></div>
+                                <div>
+                                    <button type="button" class="" onclick="refreshBalances()">Refresh</button>
+                                </div>
+                            </div>
+                            <div class="col3row">
+                                <div class="spancol">
+                                    <span id="hiveDetails" style="color: #c4bbbb;">NaN</span><span> HIVE</span>
+                                </div>
+                                <div class="spancol">
+                                    <span id="swaphiveDetails" style="color: #c4bbbb;">NaN</span><span> SWAP.HIVE</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="col3row">
-                            <div class="spancol">
-                                <span id="hiveDetails" style="color: #c4bbbb;">NaN</span><span> HIVE</span>
-                            </div>
-                            <div class="spancol">
-                                <span id="swaphiveDetails" style="color: #c4bbbb;">NaN</span><span> SWAP.HIVE</span>
-                            </div>
+                        <div class="row1col1" style="text-align: left;">                    
+                            <p><a href="https://peakd.com/swap/@hiveupme/hiveupme-swap-script-simple-ui-solution" target="_blank">Learn How To Swap</a><span id="swaphiveDetails" style="color: #c4c2c2;"> || </span><a href="https://discord.com/invite/XYMrvyr" target="_blank">Contact Us @ Discord</a></p>                        
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="row3col" style="text-align: left;">                    
-                        <p style="color: #c4bbbb;">Swap Fee = 0.1% for HIVE / SWAP.HIVE & Swap Fee = 0.0% for VAULT</p>                        
-                    </div>
-                    <div class="row3col" style="text-align: left;">
-                        <p style="color: #c4bbbb;">Minimum Swap Amount = 1 HIVE / 1 SWAP.HIVE / 1 VAULT</p>
-                    </div>
-                    <div class="row3col" style="text-align: left;">
-                        <p><a href="https://peakd.com/swap/@hiveupme/hiveupme-swap-script-simple-ui-solution" target="_blank">Learn How To Swap</a><span id="swaphiveDetails" style="color: #807e7e;"> || </span><a href="https://discord.com/invite/XYMrvyr" target="_blank">Contact Us @ Discord</a></p>
-                    </div>                   
                 </div>
             </div>
         </body>
