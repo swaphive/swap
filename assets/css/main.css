@@ -70,7 +70,20 @@ body, html {
     background-color: #363636;
     display:inline-block;
     float: left;
-    height: 30px;
+    height: 90px;
+    text-align: right;
+    font-size: 10pt;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+.row1col3 {
+    width: 99%;
+    background-color: #363636;
+    display:inline-block;
+    float: left;
+    height: 60px;
     text-align: right;
     font-size: 10pt;
     padding-top: 1%;
