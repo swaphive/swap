@@ -62,6 +62,24 @@ async function refreshBalances()
     }
 }
 
+function awaitFunction () 
+{
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve();
+        }, 1000);
+    });
+};
+  
+const intervalBalances = async function () 
+{
+    const _await = await awaitFunction();    
+    await refreshBalances();
+    setTimeout(intervalBalances, 1000 * 60);
+};  
+
+intervalBalances();
+
 async function hideSwapButtons() 
 {
     try 

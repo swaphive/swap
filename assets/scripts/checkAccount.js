@@ -103,3 +103,39 @@ function refreshUserData() {
         console.log("Error at refreshUserData() : ", error);
     }
 }
+
+async function refreshAccountBalances() 
+{
+    try 
+    {
+        var getNameValue = document.getElementById("getHiveUserName").value;
+        if (getNameValue != "" || getNameValue != null) 
+        {
+            checkSwapHiveAccDetails();
+            checkHiveAccDetails();
+            checkVaultAccDetails();
+        }
+    } 
+    catch (error) 
+    {
+        console.log("Error at refreshAccountBalances() : ", error);
+    }    
+}
+
+function awaitAccountBalanceFunction () 
+{
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve();
+        }, 1000);
+    });
+};
+  
+const intervalAccountBalances = async function () 
+{
+    const _await = await awaitAccountBalanceFunction();    
+    await refreshAccountBalances();
+    setTimeout(intervalAccountBalances, 1000 * 60);
+};  
+
+intervalAccountBalances();

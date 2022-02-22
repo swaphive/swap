@@ -17,6 +17,7 @@
         <script src="assets/scripts/checkAccount.js"></script>
         <script src="assets/scripts/swapValues.js"></script>
         <script src="assets/scripts/swapProcess.js"></script>
+        <script src="assets/scripts/swapRewards.js"></script>
 
         <body>
             <div class="container">
@@ -33,7 +34,7 @@
                                     <button type="button" class="" id="getButtonUserName" onclick="checkUserNameFieldIsEmpty()">Check Balance</button>    
                                 </div>
                             </div>
-                            <div class="col1row">
+                            <div class="col1row" style="padding-bottom: 3%;">
                                 <div class="spancol">
                                     <span id="checkHiveDetails" style="color: #bb9898;" onclick="onClickHive()">NaN</span><span> HIVE</span>
                                 </div>
@@ -45,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row1col1" style="text-align: left;">
+                        <div class="row1col1" style="text-align: left; padding-bottom: 3%;">
                             <ul style="color: #c4bbbb;">
                                 <li><p style="color: #c4bbbb; text-align: left;">Swap Fee = 0.1% for HIVE</p></li>
                                 <li><p style="color: #c4bbbb; text-align: left;">Swap Fee = 0.1% for SWAP.HIVE</p></li>
@@ -102,7 +103,7 @@
                                 </div>                                
                             </div>
                         </div>
-                        <div class="col2row">
+                        <div class="col2row" style="padding-bottom: 1%;">
                             <div><p style="color: #c4bbbb;">Swap VAULT Liquidity</p></div>
                             <div>
                                 <div>
@@ -132,7 +133,7 @@
                                     <button type="button" class="" onclick="refreshBalances()">Refresh</button>
                                 </div>
                             </div>
-                            <div class="col3row">
+                            <div class="col3row" style="padding-bottom: 3%;">
                                 <div class="spancol">
                                     <span id="hiveDetails" style="color: #c4bbbb;">NaN</span><span> HIVE</span>
                                 </div>
@@ -141,7 +142,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row1col3" style="text-align: left;">
+                        <div>
+                            <div class="col3row" style="background-color: #01183a; padding-bottom: 3%;">
+                                <div><p>Hurry! Swap Free & Earn Rewards</p></div>
+                                <div class="spancol" style="font-size: 10pt; padding-bottom: 3%;">
+                                    <span id="" style="color: #c4bbbb;">You Can Provide 30% Funds To The Less Balance Side Of The Bridge To Earn 0.05% Instant Rewards & Free Swaps</span>
+                                </div>
+                                <div class="spancol">
+                                    <span id="rewardHive" style="color: #c4bbbb;" onclick="onClickRewardHive()">NaN</span><span> HIVE Required</span>
+                                </div>
+                                <div class="spancol" >
+                                    <span id="rewardSwapHive" style="color: #c4bbbb;" onclick="onClickRewardSwapHive()">NaN</span><span> SWAP.HIVE Required</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row1col3" style="text-align: left; padding-bottom: 3%;">
                             <ul style="color: #c4c2c2;">
                                 <li><p><a href="https://peakd.com/swap/@hiveupme/hiveupme-swap-script-simple-ui-solution" target="_blank">Learn How To Swap</a></p></li>
                                 <li><p><a href="https://discord.com/invite/XYMrvyr" target="_blank">Contact Us @ Discord</a></p></li>
