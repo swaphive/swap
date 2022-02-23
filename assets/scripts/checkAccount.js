@@ -4,7 +4,7 @@ var VAULTDECIMAL = 100;
 async function checkSwapHiveAccDetails () {
     try
     {
-        var swapUserName = document.getElementById("getHiveUserName").value.toLowerCase();
+        var swapUserName = document.getElementById("getHiveUserName").value.toLowerCase().trim();
         let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUserName, 'symbol': 'SWAP.HIVE'});
         if(swapHiveData != null)
         {        
@@ -26,7 +26,7 @@ async function checkSwapHiveAccDetails () {
 async function checkHiveAccDetails () {
     try 
     {
-        var swapUserName = document.getElementById("getHiveUserName").value.toLowerCase();
+        var swapUserName = document.getElementById("getHiveUserName").value.toLowerCase().trim();
         let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [[swapUserName]]);
         if(hiveData.length > 0)
         {        
@@ -47,7 +47,7 @@ async function checkHiveAccDetails () {
 async function checkVaultAccDetails () {
     try
     {
-        var swapUserName = document.getElementById("getHiveUserName").value.toLowerCase();
+        var swapUserName = document.getElementById("getHiveUserName").value.toLowerCase().trim();
         let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUserName, 'symbol': 'VAULT'});
         if(swapHiveData != null)
         {        
@@ -68,7 +68,7 @@ async function checkVaultAccDetails () {
 
 async function checkUserNameFieldIsEmpty () {
     try
-    {
+    {        
         var getNameValue = document.getElementById("getHiveUserName").value;
         if (getNameValue == "" || getNameValue == null) 
         {
