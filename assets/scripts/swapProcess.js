@@ -126,8 +126,7 @@ async function swaphiveAsyncSwapProcessInitiate()
         swapAmount = parseFloat(swapAmount) || 0.0;      
         
         var swapMemo = "Swapping To Hive";
-
-        let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUserName, 'symbol': swapSymbol});
+        let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUsername, 'symbol': swapSymbol});
         if(swapHiveData != null)
         {        
             swapHiveBalance = parseFloat(swapHiveData.balance) || 0.0;
@@ -221,7 +220,7 @@ async function vaultAsyncSwapProcessInitiate()
         
         var swapMemo = "Swapping To Hive";
 
-        let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUserName, 'symbol': swapSymbol});
+        let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUsername, 'symbol': swapSymbol});
         if(swapHiveData != null)
         {        
             swapHiveBalance = parseFloat(swapHiveData.balance) || 0.0;
