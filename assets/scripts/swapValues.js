@@ -335,3 +335,50 @@ async function enableVaultButton() {
         console.log("Error at enableVaultButton() : ", error);
     }
 }
+
+/*
+    Refresh Swap Data 
+*/
+
+async function refreshSwapBalances() 
+{
+    try 
+    {
+        var goSwapHive = document.getElementById("goSwapHive").value;
+        var goHive = document.getElementById("goHive").value;
+
+        console.log("goHive : ", goHive);
+        console.log("goSwapHive : ", goSwapHive);
+        if (goHive != "" || goHive != null) 
+        {
+            hiveSwapChange();
+        }
+
+        if (goSwapHive != "" || goSwapHive != null) 
+        {
+            swaphiveSwapChange();
+        }
+    } 
+    catch (error) 
+    {
+        console.log("Error at refreshSwapBalances() : ", error);
+    }    
+}
+
+function awaitSwapBalanceFunction () 
+{
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve();
+        }, 1000);
+    });
+};
+  
+const intervalSwapBalances = async function () 
+{
+    const _await = await awaitSwapBalanceFunction();    
+    await refreshSwapBalances();
+    setTimeout(intervalSwapBalances, 1000 * 10);
+};  
+
+intervalSwapBalances();
