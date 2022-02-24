@@ -112,24 +112,6 @@ async function setDiscountedBridge()
     }
 }
 
-function awaitRewardFunction () 
-{
-    return new Promise(function (resolve, reject) {
-        setTimeout(function () {
-            resolve();
-        }, 1000);
-    });
-};
-  
-const intervalRewardBalances = async function () 
-{
-    const _await = await awaitRewardFunction();    
-    await setDiscountedBridge();
-    setTimeout(intervalRewardBalances, 1000 * 60);
-};  
-
-intervalRewardBalances();
-
 async function onClickRewardHive() 
 {
     try
@@ -156,7 +138,7 @@ async function onClickRewardSwapHive()
     try
     {
         var swaphiveRewardBalance = document.getElementById("rewardSwapHive").innerHTML;
-        if(hiveRewardBalance != "NaN")
+        if(swaphiveRewardBalance != "NaN")
         {
             document.getElementById("goSwapHive").value = swaphiveRewardBalance;
             swaphiveRewardBalance = parseFloat(swaphiveRewardBalance) || 0.0;
@@ -171,3 +153,21 @@ async function onClickRewardSwapHive()
         console.log("Error at onClickRewardSwapHive() : ", error);
     }
 }
+
+function awaitRewardFunction () 
+{
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve();
+        }, 1000);
+    });
+};
+  
+const intervalRewardBalances = async function () 
+{
+    const _await = await awaitRewardFunction();    
+    await setDiscountedBridge();
+    setTimeout(intervalRewardBalances, 1000 * 60);
+};  
+
+intervalRewardBalances();
