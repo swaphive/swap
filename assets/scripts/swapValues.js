@@ -2,6 +2,8 @@ var DECIMAL = 1000;
 var prevHiveValue = "";
 var prevSwapHiveValue = "";
 var prevVaultValue = "";
+var feePercentage = 0.001;
+var bridgeFeePercentage = 0.00075;
 
 // Hive Swap Data
 async function hiveSwapChange () {
@@ -22,7 +24,7 @@ async function validateHivePattern(price) {
     if (matchedString) 
     {        
         prevHiveValue = matchedString[1] + (matchedString[2] ? matchedString[2].replace(",", ".") : "");
-        hiveSwapFee(prevHiveValue);
+        await hiveSwapFee(prevHiveValue);
         enableHiveButton();       
     }
     else
@@ -41,7 +43,7 @@ async function onClickHive() {
         {            
             document.getElementById("goHive").value = hiveBalance;
             prevHiveValue = hiveBalance;
-            hiveSwapFee(prevHiveValue);
+            await hiveSwapFee(prevHiveValue);
             enableHiveButton();
         }
     } 
@@ -53,13 +55,44 @@ async function onClickHive() {
 
 async function hiveSwapFee(swapAmount) {
     try 
-    {
-        var feePercentage = 0.001;
+    {       
+        var splitQty = 0.0;
+        var totalFee = 0.0;
+        var totalReceived = 0.0;
+        var bridgeProfit = 0.0;
+        var discountedBridgeSplit = await splitDiscountedBridge();
+        var hiveBalance = await calcHiveAmount();
         swapAmount = parseFloat(swapAmount) || 0.0;
-        var totalFee = Math.floor((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
-        var totalReceived = Math.floor((swapAmount - totalFee) * DECIMAL) / DECIMAL;
-        document.getElementById("hiveReceived").innerHTML = totalReceived;
-        document.getElementById("hiveFee").innerHTML = totalFee;
+
+        if(discountedBridgeSplit > hiveBalance)
+        {
+            var bridgeFillHive = Math.floor((discountedBridgeSplit - hiveBalance) * DECIMAL) / DECIMAL;
+            bridgeFillHive = parseFloat(bridgeFillHive) || 0.0;
+            if(swapAmount > bridgeFillHive)
+            {
+                splitQty =  Math.floor((swapAmount - bridgeFillHive) * DECIMAL) / DECIMAL;
+                totalFee = Math.floor((splitQty * feePercentage) * DECIMAL) / DECIMAL;
+                bridgeProfit = Math.floor((bridgeFillHive * bridgeFeePercentage) * DECIMAL) / DECIMAL;
+                totalReceived = Math.floor((swapAmount + bridgeProfit - totalFee) * DECIMAL) / DECIMAL;
+
+                document.getElementById("hiveReceived").innerHTML = totalReceived;
+                document.getElementById("hiveFee").innerHTML = totalFee;
+            }
+            else
+            {
+                totalFee = 0.0;
+                bridgeProfit = Math.floor((swapAmount + (swapAmount * bridgeFeePercentage)) * DECIMAL) / DECIMAL;
+                document.getElementById("hiveReceived").innerHTML = bridgeProfit;
+                document.getElementById("hiveFee").innerHTML = totalFee;
+            }
+        }
+        else
+        {
+            totalFee = Math.floor((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
+            totalReceived = Math.floor((swapAmount - totalFee) * DECIMAL) / DECIMAL;
+            document.getElementById("hiveReceived").innerHTML = totalReceived;
+            document.getElementById("hiveFee").innerHTML = totalFee;
+        }       
     } 
     catch (error) 
     {
@@ -143,12 +176,43 @@ async function onClickSwapHive() {
 async function swaphiveSwapFee(swapAmount) {
     try 
     {
-        var feePercentage = 0.001;
+        var splitQty = 0.0;
+        var totalFee = 0.0;
+        var totalReceived = 0.0;
+        var bridgeProfit = 0.0;
+        var discountedBridgeSplit = await splitDiscountedBridge();
+        var swaphiveBalance = await calclSwapHiveAmount();
         swapAmount = parseFloat(swapAmount) || 0.0;
-        var totalFee = Math.floor((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
-        var totalReceived = Math.floor((swapAmount - totalFee) * DECIMAL) / DECIMAL;
-        document.getElementById("swaphiveReceived").innerHTML = totalReceived;
-        document.getElementById("swaphiveFee").innerHTML = totalFee;
+
+        if(discountedBridgeSplit > swaphiveBalance)
+        {
+            var bridgeFillHive = Math.floor((discountedBridgeSplit - swaphiveBalance) * DECIMAL) / DECIMAL;
+            bridgeFillHive = parseFloat(bridgeFillHive) || 0.0;
+            if(swapAmount > bridgeFillHive)
+            {
+                splitQty =  Math.floor((swapAmount - bridgeFillHive) * DECIMAL) / DECIMAL;
+                totalFee = Math.floor((splitQty * feePercentage) * DECIMAL) / DECIMAL;
+                bridgeProfit = Math.floor((bridgeFillHive * bridgeFeePercentage) * DECIMAL) / DECIMAL;
+                totalReceived = Math.floor((swapAmount + bridgeProfit - totalFee) * DECIMAL) / DECIMAL;
+
+                document.getElementById("swaphiveReceived").innerHTML = totalReceived;
+                document.getElementById("swaphiveFee").innerHTML = totalFee;
+            }
+            else
+            {
+                totalFee = 0.0;
+                bridgeProfit = Math.floor((swapAmount + (swapAmount * bridgeFeePercentage)) * DECIMAL) / DECIMAL;
+                document.getElementById("swaphiveReceived").innerHTML = bridgeProfit;
+                document.getElementById("swaphiveFee").innerHTML = totalFee;
+            }
+        }
+        else
+        {
+            totalFee = Math.floor((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
+            totalReceived = Math.floor((swapAmount - totalFee) * DECIMAL) / DECIMAL;
+            document.getElementById("swaphiveReceived").innerHTML = totalReceived;
+            document.getElementById("swaphiveFee").innerHTML = totalFee;
+        }
     } 
     catch (error) 
     {

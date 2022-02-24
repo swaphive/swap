@@ -1,6 +1,6 @@
 var DECIMAL = 1000;
-var rewardPercentage = 0.0005;
-var rewardSplit = 30;
+var rewardPercentage = 0.00075;
+var rewardSplit = 35;
 
 const calcHiveAmount = async () => {
     var hiveBalance = 0.0;
@@ -122,7 +122,7 @@ async function onClickRewardHive()
             document.getElementById("goHive").value = hiveRewardBalance;
             hiveRewardBalance = parseFloat(hiveRewardBalance) || 0.0;
             var rewardHiveBalance = Math.floor((hiveRewardBalance * rewardPercentage) * DECIMAL) / DECIMAL;
-            var hiveReceiveBalance = hiveRewardBalance + rewardHiveBalance;
+            var hiveReceiveBalance = Math.floor((hiveRewardBalance + rewardHiveBalance) * DECIMAL) / DECIMAL;
             document.getElementById("hiveReceived").innerHTML = hiveReceiveBalance;
             document.getElementById("hiveFee").innerHTML = 0.00;
         }
@@ -143,7 +143,7 @@ async function onClickRewardSwapHive()
             document.getElementById("goSwapHive").value = swaphiveRewardBalance;
             swaphiveRewardBalance = parseFloat(swaphiveRewardBalance) || 0.0;
             var rewardSwapHiveBalance = Math.floor((swaphiveRewardBalance * rewardPercentage) * DECIMAL) / DECIMAL;
-            var swaphiveReceiveBalance = swaphiveRewardBalance + rewardSwapHiveBalance;
+            var swaphiveReceiveBalance = Math.floor((swaphiveRewardBalance + rewardSwapHiveBalance) * DECIMAL) / DECIMAL;
             document.getElementById("swaphiveReceived").innerHTML = swaphiveReceiveBalance;
             document.getElementById("swaphiveFee").innerHTML = 0.00;
         }
