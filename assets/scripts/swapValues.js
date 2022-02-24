@@ -346,9 +346,7 @@ async function refreshSwapBalances()
     {
         var goSwapHive = document.getElementById("goSwapHive").value;
         var goHive = document.getElementById("goHive").value;
-
-        console.log("goHive : ", goHive);
-        console.log("goSwapHive : ", goSwapHive);
+        
         if (goHive != "" || goHive != null) 
         {
             hiveSwapChange();
