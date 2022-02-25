@@ -1,6 +1,7 @@
 var DECIMAL = 1000;
 var MINTOKEN = 1.0;
 var TIMEOUT = 15000;
+var REFRESHTIMEOUT = 10000;
 
 function timeout(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -38,7 +39,7 @@ async function hiveAsyncSwapProcessInitiate()
         
         var swapMemo = "Swapping To Swap.Hive";
 
-        await timeout(TIMEOUT);
+        await timeout(REFRESHTIMEOUT);
         let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [[swapUsername]]);
         if(hiveData.length > 0)
         {        
@@ -139,7 +140,7 @@ async function swaphiveAsyncSwapProcessInitiate()
         
         var swapMemo = "Swapping To Hive";
 
-        await timeout(TIMEOUT);
+        await timeout(REFRESHTIMEOUT);
         let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUsername, 'symbol': swapSymbol});
         if(swapHiveData != null)
         {        
@@ -240,7 +241,7 @@ async function vaultAsyncSwapProcessInitiate()
         
         var swapMemo = "Swapping To Hive";
         
-        await timeout(TIMEOUT);
+        await timeout(REFRESHTIMEOUT);
         let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUsername, 'symbol': swapSymbol});
         if(swapHiveData != null)
         {        
