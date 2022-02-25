@@ -27,7 +27,12 @@ async function refreshAccountData() {
 async function hiveAsyncSwapProcessInitiate()
 {
     try
-    {
+    {       
+        $('.hiveSwapProcessClass').addClass('loading');
+        setTimeout(function () { 
+            $('.hiveSwapProcessClass').removeClass('loading');
+        }, REFRESHTIMEOUT);
+
         var hiveBalance = 0.0;
         var swapTo = "hiveupme";
         var swapSymbol = "HIVE";
@@ -129,6 +134,11 @@ async function swaphiveAsyncSwapProcessInitiate()
 {
     try
     {
+        $('.swaphiveSwapProcessClass').addClass('loading');
+        setTimeout(function () { 
+            $('.swaphiveSwapProcessClass').removeClass('loading');
+        }, REFRESHTIMEOUT);
+
         var swapHiveBalance = 0.0;
         var swapTo = "hiveupme";
         var swapSymbol = "SWAP.HIVE";
@@ -229,6 +239,11 @@ async function vaultAsyncSwapProcessInitiate()
 {
     try
     {
+        $('.vaultSwapProcessClass').addClass('loading');
+        setTimeout(function () { 
+            $('.vaultSwapProcessClass').removeClass('loading');
+        }, REFRESHTIMEOUT);
+
         var ratio = 10;
         var swapHiveBalance = 0.0;
         var swapTo = "hiveupme";
@@ -326,6 +341,15 @@ async function vaultAsyncSwapProcessInitiate()
         console.log("Error at vaultAsyncSwapProcessInitiate() : ", error);
     }
 }
+
+$('.btn').on('click', function() {
+    var $this = $(this);
+  $this.button('loading');
+    setTimeout(function() {
+       $this.button('reset');
+   }, 8000);
+});
+
 
 /*
 function hiveSwapProcessInitiate()

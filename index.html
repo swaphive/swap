@@ -6,6 +6,7 @@
         <link rel="icon" href="assets/img/hiveupme.png">
         <!--css-->
         <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--scripts--> 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sscjs@latest/dist/ssc.min.js"></script>
@@ -65,9 +66,11 @@
                             <div><p style="color: #c4bbbb;">Swap HIVE Liquidity</p></div>                            
                             <div>
                                 <div>
-                                    <input type="text" class="" placeholder="Swap Amount..." id="goHive" onkeyup="hiveSwapChange()">
-                                    <span> HIVE</span>
-                                    <button type="button" class="" id="hiveSwapProcess" onclick="hiveAsyncSwapProcessInitiate()">Swap</button>
+                                    <div>
+                                        <input type="text" class="" placeholder="Swap Amount..." id="goHive" onkeyup="hiveSwapChange()">
+                                        <span> HIVE</span>
+                                        <button type="button" class="hiveSwapProcessClass" id="hiveSwapProcess" onclick="hiveAsyncSwapProcessInitiate()">Swap</button>                                        
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="spancol">
@@ -88,7 +91,7 @@
                                 <div>
                                     <input type="text" class="" placeholder="Swap Amount..." id="goSwapHive" onkeyup="swaphiveSwapChange()">
                                     <span> SWAP.HIVE</span>
-                                    <button type="button" class="" id="swaphiveSwapProcess" onclick="swaphiveAsyncSwapProcessInitiate()">Swap</button>
+                                    <button type="button" class="swaphiveSwapProcessClass" id="swaphiveSwapProcess" onclick="swaphiveAsyncSwapProcessInitiate()">Swap</button>
                                 </div>
                                 <div>
                                     <div class="spancol">
@@ -109,7 +112,7 @@
                                 <div>
                                     <input type="text" class="" placeholder="Swap Amount..." id="goVault" onkeyup="vaultSwapChange()">
                                     <span> VAULT</span>
-                                    <button type="button" class="" id="vaultSwapProcess" onclick="vaultAsyncSwapProcessInitiate()">Swap</button>
+                                    <button type="button" class="vaultSwapProcessClass" id="vaultSwapProcess" onclick="vaultAsyncSwapProcessInitiate()">Swap</button>
                                 </div>
                                 <div>
                                     <div class="spancol">

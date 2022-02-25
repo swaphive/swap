@@ -112,3 +112,11 @@ body, html {
 a {
     color: #c4c2c2;
 }
+
+.loading {
+    content: " Processing...";
+}
+  
+.loading:after {
+    content: " Processing...";
+}
