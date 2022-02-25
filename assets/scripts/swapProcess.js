@@ -38,6 +38,7 @@ async function hiveAsyncSwapProcessInitiate()
         
         var swapMemo = "Swapping To Swap.Hive";
 
+        await timeout(TIMEOUT);
         let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [[swapUsername]]);
         if(hiveData.length > 0)
         {        
@@ -137,6 +138,8 @@ async function swaphiveAsyncSwapProcessInitiate()
         swapAmount = parseFloat(swapAmount) || 0.0;      
         
         var swapMemo = "Swapping To Hive";
+
+        await timeout(TIMEOUT);
         let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUsername, 'symbol': swapSymbol});
         if(swapHiveData != null)
         {        
@@ -236,7 +239,8 @@ async function vaultAsyncSwapProcessInitiate()
         swapAmount = parseFloat(swapAmount) || 0.0;      
         
         var swapMemo = "Swapping To Hive";
-
+        
+        await timeout(TIMEOUT);
         let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUsername, 'symbol': swapSymbol});
         if(swapHiveData != null)
         {        
