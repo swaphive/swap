@@ -53,12 +53,36 @@ async function refreshBalances()
 {
     try 
     {
-        hiveAccDetails();
-        swapHiveAccDetails();
+        await setTextRefreshing();
+        await hiveAccDetails();
+        await swapHiveAccDetails();
+        await setTextRefreshBalance();
     } 
     catch (error) 
     {
         console.log("Error at refreshBalances() : ", error);
+    }
+}
+
+async function setTextRefreshing () {
+    try
+    {
+        document.getElementById("refreshBalanceId").innerHTML = "Refreshing..."; 
+    }
+    catch (error)
+    {
+        console.log("Error at setTextRefreshing() : ", error);
+    }
+}
+
+async function setTextRefreshBalance () {
+    try
+    {
+        document.getElementById("refreshBalanceId").innerHTML = "Refresh"; 
+    }
+    catch (error)
+    {
+        console.log("Error at setTextRefreshBalance() : ", error);
     }
 }
 
@@ -74,9 +98,22 @@ function awaitFunction ()
 const intervalBalances = async function () 
 {
     const _await = await awaitFunction();    
-    await refreshBalances();
+    await intervalRefreshBalances();
     setTimeout(intervalBalances, 1000 * 60);
 };  
+
+async function intervalRefreshBalances()
+{
+    try 
+    {
+        hiveAccDetails();
+        swapHiveAccDetails();
+    } 
+    catch (error) 
+    {
+        console.log("Error at intervalRefreshBalances() : ", error);
+    }
+}
 
 intervalBalances();
 

@@ -68,7 +68,8 @@ async function checkVaultAccDetails () {
 
 async function checkUserNameFieldIsEmpty () {
     try
-    {        
+    {
+        await setTextChecking();       
         var getNameValue = document.getElementById("getHiveUserName").value;
         if (getNameValue == "" || getNameValue == null) 
         {
@@ -76,14 +77,37 @@ async function checkUserNameFieldIsEmpty () {
         }
         else
         {
-            checkSwapHiveAccDetails();
-            checkHiveAccDetails();
-            checkVaultAccDetails();
+            await checkSwapHiveAccDetails();
+            await checkHiveAccDetails();
+            await checkVaultAccDetails();
         }
+       await setTextCheckBalance();
     }
     catch (error)
     {
         console.log("Error at checkUserNameFieldIsEmpty() : ", error);
+    }
+}
+
+async function setTextChecking () {
+    try
+    {
+        document.getElementById("getButtonUserName").innerHTML = "Checking..."; 
+    }
+    catch (error)
+    {
+        console.log("Error at setTextChecking() : ", error);
+    }
+}
+
+async function setTextCheckBalance () {
+    try
+    {
+        document.getElementById("getButtonUserName").innerHTML = "Check Balance"; 
+    }
+    catch (error)
+    {
+        console.log("Error at setTextCheckBalance() : ", error);
     }
 }
 
