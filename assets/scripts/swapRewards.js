@@ -1,6 +1,6 @@
 var DECIMAL = 1000;
 var rewardPercentage = 0.00075;
-var rewardSplit = 30;
+var rewardSplit = 25;
 
 const calcHiveAmount = async () => {
     var hiveBalance = 0.0;
