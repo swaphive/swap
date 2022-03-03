@@ -346,6 +346,7 @@ async function refreshSwapBalances()
     {
         var goSwapHive = document.getElementById("goSwapHive").value;
         var goHive = document.getElementById("goHive").value;
+        var goVault = document.getElementById("goVault").value;
         
         if (goHive != "" || goHive != null) 
         {
@@ -355,6 +356,11 @@ async function refreshSwapBalances()
         if (goSwapHive != "" || goSwapHive != null) 
         {
             swaphiveSwapChange();
+        }
+
+        if (goVault != "" || goVault != null) 
+        {
+            vaultSwapChange();
         }
     } 
     catch (error) 
