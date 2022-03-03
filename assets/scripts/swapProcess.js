@@ -77,7 +77,8 @@ async function hiveAsyncSwapProcessInitiate()
                             document.getElementById("hiveTransferMsg").innerHTML = successString;                            
                             document.getElementById("hiveSwapProcess").disabled = true;
                             await timeout(TIMEOUT);
-                            document.getElementById("goHive").value = 0;
+                            document.getElementById("goHive").value = "";
+  	                        document.getElementById("goHive").placeholder = "Swap Amount...";
                             await refreshAccountData();
                         }
                         else
@@ -183,7 +184,8 @@ async function swaphiveAsyncSwapProcessInitiate()
                             document.getElementById("swaphiveTransferMsg").innerHTML = successString;                           
                             document.getElementById("swaphiveSwapProcess").disabled = true;
                             await timeout(TIMEOUT);
-                            document.getElementById("goSwapHive").value = 0;
+                            document.getElementById("goSwapHive").value = "";
+                            document.getElementById("goSwapHive").placeholder = "Swap Amount...";
                             await refreshAccountData();
                         }
                         else
@@ -291,7 +293,8 @@ async function vaultAsyncSwapProcessInitiate()
                             document.getElementById("vaultTransferMsg").innerHTML = successString;                           
                             document.getElementById("vaultSwapProcess").disabled = true;
                             await timeout(TIMEOUT);
-                            document.getElementById("goVault").value = 0;
+                            document.getElementById("goVault").value = "";
+                            document.getElementById("goVault").placeholder = "Swap Amount...";
                             await refreshAccountData();
                         }
                         else
