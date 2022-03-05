@@ -1,12 +1,29 @@
 const ssc = new SSC('https://api.hive-engine.com/rpc/');
 
 var DECIMAL = 1000;
+var rewardSplitPercentage = 25;
+var feePercentage = 0.001;
+var rewardPercentage = 0.00075;
 
-window.onload = async function() {
+window.onload = async function() {    
+    loadRewardPercentages();
     hiveAccDetails(); 
     swapHiveAccDetails();
     hideSwapButtons();        
 };
+
+async function loadRewardPercentages() {
+    try
+    {
+        document.getElementById("rewardSplitId").innerHTML = rewardSplitPercentage;
+        var setRewardPercentage = rewardPercentage * 100;
+        document.getElementById("rewardPercentageId").innerHTML = setRewardPercentage;
+    }
+    catch (error)
+    {
+        console.log("Error at loadRewardPercentages() : ", error);
+    }
+}
 
 async function swapHiveAccDetails () {
     try

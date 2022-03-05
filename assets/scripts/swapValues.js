@@ -1,9 +1,7 @@
-var DECIMAL = 1000;
 var prevHiveValue = "";
 var prevSwapHiveValue = "";
 var prevVaultValue = "";
-var feePercentage = 0.001;
-var bridgeFeePercentage = 0.00075;
+var bridgeFeePercentage = parseFloat(rewardPercentage) || 0.0;
 
 // Hive Swap Data
 async function hiveSwapChange () {

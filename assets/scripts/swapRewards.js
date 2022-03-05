@@ -1,7 +1,3 @@
-var DECIMAL = 1000;
-var rewardPercentage = 0.00075;
-var rewardSplit = 25;
-
 const calcHiveAmount = async () => {
     var hiveBalance = 0.0;
     try
@@ -60,6 +56,8 @@ const totalDiscountedBridge = async () => {
 
 const splitDiscountedBridge = async () => {
     var splitAmount = 0.0;
+    var rewardSplit = rewardSplitPercentage;
+    rewardSplit = parseFloat(rewardSplit) || 0.0;
     try 
     {
         var totalAmount = await totalDiscountedBridge();

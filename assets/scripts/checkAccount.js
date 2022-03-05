@@ -1,4 +1,3 @@
-var DECIMAL = 1000;
 var VAULTDECIMAL = 100;
 
 async function checkSwapHiveAccDetails () {
