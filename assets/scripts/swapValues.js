@@ -69,7 +69,7 @@ async function hiveSwapFee(swapAmount) {
             if(swapAmount > bridgeFillHive)
             {
                 splitQty =  Math.floor((swapAmount - bridgeFillHive) * DECIMAL) / DECIMAL;
-                totalFee = Math.floor((splitQty * feePercentage) * DECIMAL) / DECIMAL;
+                totalFee = Math.ceil((splitQty * feePercentage) * DECIMAL) / DECIMAL;
                 bridgeProfit = Math.floor((bridgeFillHive * bridgeFeePercentage) * DECIMAL) / DECIMAL;
                 totalReceived = Math.floor((swapAmount + bridgeProfit - totalFee) * DECIMAL) / DECIMAL;
 
@@ -86,7 +86,7 @@ async function hiveSwapFee(swapAmount) {
         }
         else
         {
-            totalFee = Math.floor((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
+            totalFee = Math.ceil((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
             totalReceived = Math.floor((swapAmount - totalFee) * DECIMAL) / DECIMAL;
             document.getElementById("hiveReceived").innerHTML = totalReceived;
             document.getElementById("hiveFee").innerHTML = totalFee;
@@ -189,7 +189,7 @@ async function swaphiveSwapFee(swapAmount) {
             if(swapAmount > bridgeFillHive)
             {
                 splitQty =  Math.floor((swapAmount - bridgeFillHive) * DECIMAL) / DECIMAL;
-                totalFee = Math.floor((splitQty * feePercentage) * DECIMAL) / DECIMAL;
+                totalFee = Math.ceil((splitQty * feePercentage) * DECIMAL) / DECIMAL;
                 bridgeProfit = Math.floor((bridgeFillHive * bridgeFeePercentage) * DECIMAL) / DECIMAL;
                 totalReceived = Math.floor((swapAmount + bridgeProfit - totalFee) * DECIMAL) / DECIMAL;
 
@@ -206,7 +206,7 @@ async function swaphiveSwapFee(swapAmount) {
         }
         else
         {
-            totalFee = Math.floor((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
+            totalFee = Math.ceil((swapAmount * feePercentage) * DECIMAL) / DECIMAL;
             totalReceived = Math.floor((swapAmount - totalFee) * DECIMAL) / DECIMAL;
             document.getElementById("swaphiveReceived").innerHTML = totalReceived;
             document.getElementById("swaphiveFee").innerHTML = totalFee;
@@ -298,7 +298,7 @@ async function vaultSwapFee(swapAmount) {
         var swapRatio = 10;
         swapAmount = parseFloat(swapAmount) || 0.0;
         swapAmount = swapAmount / swapRatio;
-        var totalFee = Math.floor((feePercentage) * DECIMAL) / DECIMAL;
+        var totalFee = Math.ceil((feePercentage) * DECIMAL) / DECIMAL;
         var totalReceived = Math.floor((swapAmount) * DECIMAL) / DECIMAL;
         document.getElementById("vaultReceived").innerHTML = totalReceived;
         document.getElementById("vaultFee").innerHTML = totalFee;
