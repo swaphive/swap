@@ -1,7 +1,7 @@
 const ssc = new SSC('https://api.hive-engine.com/rpc/');
 
 var DECIMAL = 1000;
-var rewardSplitPercentage = 25;
+var rewardSplitPercentage = 20;
 var feePercentage = 0.001;
 var rewardPercentage = 0.00075;
 
