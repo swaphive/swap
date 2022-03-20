@@ -5,11 +5,12 @@ var rewardSplitPercentage = 20;
 var feePercentage = 0.001;
 var rewardPercentage = 0.00075;
 
-window.onload = async function() {    
+window.onload = async function() { 
+    loadAccountName();   
     loadRewardPercentages();
     hiveAccDetails(); 
     swapHiveAccDetails();
-    hideSwapButtons();        
+    hideSwapButtons();            
 };
 
 async function loadRewardPercentages() {
@@ -148,3 +149,45 @@ async function hideSwapButtons()
     }
 }
 
+// Trying To Keep HIVE Username After Page Refresh
+async function loadAccountName()
+{
+    try
+    {
+        document.getElementById("getHiveUserName").value = await getSavedUserName("getHiveUserName");
+    }
+    catch(error)
+    {
+        console.log("Error at loadAccountName() : ", error);
+    }
+}
+
+async function saveUserName(e)
+{
+    try 
+    {
+        var id = e.id;  // get the sender's id to save it . 
+        var val = e.value; // get the value.
+        localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override .
+    } 
+    catch (error) 
+    {
+        console.log("Error at saveUserName() : ", error);
+    }
+}
+
+async function getSavedUserName(v)
+{
+    try 
+    {
+        if (!localStorage.getItem(v)) 
+        {
+            return "";
+        }
+        return localStorage.getItem(v);
+    } 
+    catch (error) 
+    {
+        console.log("Error at getSavedUserName() : ", error);
+    }    
+}
