@@ -271,7 +271,7 @@ async function vaultAsyncHiveSwapProcessInitiate()
                 let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [[swapTo]]);
                 if(hiveData.length > 0)
                 {        
-                    hiveBalance = parseFloat(hiveData[0].balance.replace("HIVE", "").trim()) || 0.0;
+                    var hiveBalance = parseFloat(hiveData[0].balance.replace("HIVE", "").trim()) || 0.0;
                     hiveBalance = hiveBalance * ratio;
                     if(hiveBalance >= swapAmount)
                     {
@@ -383,11 +383,14 @@ async function vaultAsyncSwapHiveSwapProcessInitiate()
             swapHiveBalance = parseFloat(swapHiveBalance) || 0.0;
             if(swapHiveBalance >= swapAmount && swapAmount >= MINTOKEN)
             {
-                let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [[swapTo]]);
-                if(hiveData.length > 0)
-                {        
-                    hiveBalance = parseFloat(hiveData[0].balance.replace("HIVE", "").trim()) || 0.0;
+                let hiveData = await ssc.findOne('tokens', 'balances', {'account': swapTo, 'symbol': 'SWAP.HIVE'});
+                if(hiveData != null)
+                { 
+                    var hiveBalance = parseFloat(hiveData.balance) || 0.0;
+                    hiveBalance = Math.floor(hiveBalance * DECIMAL) / DECIMAL;
+                    hiveBalance = parseFloat(hiveBalance) || 0.0; 
                     hiveBalance = hiveBalance * ratio;
+
                     if(hiveBalance >= swapAmount)
                     {
                         swapAmount = swapAmount.toFixed(3);
