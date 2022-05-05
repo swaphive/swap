@@ -22,8 +22,10 @@
 
         <body>
             <div class="container">
-                <div class="row">                    
-                    <p class="row1colp" style="color: #c4bbbb;">@HIVEUPME Discounted Bridge</p>                   
+                <div class="row">
+                    <div class="headercol1">                    
+                        <p class="row1colp1" style="color: #c4bbbb;">@HIVEUPME Discounted Bridge</p>
+                    </div>                 
                 </div>
                 <div class="row">
                     <div class="col1">
@@ -74,10 +76,12 @@
                                 </div>
                                 <div>
                                     <div class="spancol">
-                                        <span >Total Received : </span><span id="hiveReceived">NaN</span><span > SWAP.HIVE</span>
-                                    </div>
-                                    <div class="spancol">
-                                        <span>Fee : </span><span id="hiveFee">NaN</span><span> SWAP.HIVE</span>
+                                        <div class="spancol1">
+                                            <span >Total Received : </span><span id="hiveReceived">NaN</span><span > SWAP.HIVE</span>                                    
+                                        </div>
+                                        <div class="spancol2">
+                                            <span>Fee : </span><span id="hiveFee">NaN</span><span> SWAP.HIVE</span>
+                                        </div>
                                     </div>
                                     <div class="spancol">
                                         <span id="hiveTransferMsg" style="color: #b8b3b4;"></span>
@@ -95,10 +99,12 @@
                                 </div>
                                 <div>
                                     <div class="spancol">
-                                        <span>Total Received : </span><span id="swaphiveReceived">NaN</span><span> HIVE</span>
-                                    </div>
-                                    <div class="spancol">
-                                        <span>Fee : </span><span id="swaphiveFee">NaN</span><span> HIVE</span>
+                                        <div class="spancol1">
+                                            <span>Total Received : </span><span id="swaphiveReceived">NaN</span><span> HIVE</span>
+                                        </div>
+                                        <div class="spancol2">
+                                            <span>Fee : </span><span id="swaphiveFee">NaN</span><span> HIVE</span>
+                                        </div>                                        
                                     </div>
                                     <div class="spancol">
                                         <span id="swaphiveTransferMsg" style="color: #b8b3b4;"></span>
@@ -111,20 +117,27 @@
                             <div>
                                 <div>
                                     <input type="text" class="" placeholder="Swap Amount..." id="goVault" onkeyup="vaultSwapChange()">
-                                    <span> VAULT</span>
-                                    <button type="button" class="vaultSwapProcessClass" id="vaultSwapProcess" onclick="vaultAsyncSwapProcessInitiate()">Swap</button>
+                                    <span> VAULT</span>                                    
                                 </div>
                                 <div>
                                     <div class="spancol">
-                                        <span>Total Received : </span><span id="vaultReceived">NaN</span><span> HIVE</span>
+                                        <button type="button" class="vaultHiveSwapProcessClass" id="vaultHiveSwapProcess" onclick="vaultAsyncHiveSwapProcessInitiate()">Swap To Hive</button>
+                                        <button type="button" class="vaultSwapHiveSwapProcessClass" id="vaultSwapHiveSwapProcess" onclick="vaultAsyncSwapHiveSwapProcessInitiate()">Swap To Swap.Hive</button>
                                     </div>
-                                    <div class="spancol">
-                                        <span>Fee : </span><span id="vaultFee">NaN</span><span> HIVE</span>
+                                </div>
+                                <div>
+                                    <div class="spancol">                                        
+                                        <div class="spancol1">
+                                            <span>Total Received : </span><span id="vaultReceived">NaN</span><span> HIVE/SWAP.HIVE</span>
+                                        </div>
+                                        <div class="spancol2">
+                                            <span>Fee : </span><span id="vaultFee">NaN</span><span> HIVE/SWAP.HIVE</span>
+                                        </div>                                        
                                     </div>
                                     <div class="spancol">
                                         <span id="vaultTransferMsg" style="color: #b8b3b4;"></span>
                                     </div>
-                                </div>                                 
+                                </div>                           
                             </div>
                         </div>
                     </div>

@@ -21,6 +21,16 @@ body, html {
     padding: 1% 0 0 1%;
 }
 
+.headercol1 {
+    width: 40%;
+    display:inline-block;
+}
+
+.headercol2, .headercol3 {
+    width: 25%;
+    display:inline-block;
+}
+
 .col1, .col3 {
     width: 24%;
     display:inline-block;
@@ -61,8 +71,12 @@ body, html {
     padding: 1%;
 }
 
-.row1colp {
+.row1colp1 {
     font-size: 18pt;
+}
+
+.row1colp2 {
+    font-size: 12pt;
 }
 
 .row1col1 {
@@ -107,6 +121,17 @@ body, html {
 .spancol {
     font-size: 10pt;
     padding-top: 1%;
+}
+
+.spancol1 {
+    width: 40%;
+    display:inline-block;
+}
+
+.spancol2 {
+    width: 40%;
+    display:inline-block;
+    color: #dadada;
 }
 
 a {

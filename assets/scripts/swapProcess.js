@@ -238,13 +238,13 @@ async function swaphiveAsyncSwapProcessInitiate()
     }
 }
 
-async function vaultAsyncSwapProcessInitiate()
+async function vaultAsyncHiveSwapProcessInitiate()
 {
     try
     {
-        $('.vaultSwapProcessClass').addClass('loading');
+        $('.vaultHiveSwapProcessClass').addClass('loading');
         setTimeout(function () { 
-            $('.vaultSwapProcessClass').removeClass('loading');
+            $('.vaultHiveSwapProcessClass').removeClass('loading');
         }, REFRESHTIMEOUT);
 
         var ratio = 10;
@@ -290,7 +290,8 @@ async function vaultAsyncSwapProcessInitiate()
                         {
                             var successString = "You sent : " + swapAmount + " " + swapSymbol + " to : @" + swapTo + " successfully...!!!";
                             document.getElementById("vaultTransferMsg").innerHTML = successString;                           
-                            document.getElementById("vaultSwapProcess").disabled = true;
+                            document.getElementById("vaultHiveSwapProcess").disabled = true;
+                            document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
                             await timeout(TIMEOUT);
                             document.getElementById("goVault").value = "";
                             document.getElementById("goVault").placeholder = "Swap Amount...";
@@ -300,7 +301,8 @@ async function vaultAsyncSwapProcessInitiate()
                         {
                             var failString = "Token swap process failed, please try again...!!!";
                             document.getElementById("vaultTransferMsg").innerHTML = failString;                            
-                            document.getElementById("vaultSwapProcess").disabled = true;
+                            document.getElementById("vaultHiveSwapProcess").disabled = true;
+                            document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
                             await timeout(TIMEOUT);
                             await refreshAccountData();
                         }
@@ -309,7 +311,8 @@ async function vaultAsyncSwapProcessInitiate()
                     {
                         var failString = "Token swap process failed, please try again...!!!";
                         document.getElementById("vaultTransferMsg").innerHTML = failString;                            
-                        document.getElementById("vaultSwapProcess").disabled = true;
+                        document.getElementById("vaultHiveSwapProcess").disabled = true;
+                        document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
                         await timeout(TIMEOUT);
                         await refreshAccountData();
                     }
@@ -318,7 +321,8 @@ async function vaultAsyncSwapProcessInitiate()
                 {
                     var failString = "Token swap process failed, please try again...!!!";
                     document.getElementById("vaultTransferMsg").innerHTML = failString;                            
-                    document.getElementById("vaultSwapProcess").disabled = true;
+                    document.getElementById("vaultHiveSwapProcess").disabled = true;
+                    document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
                     await timeout(TIMEOUT);
                     await refreshAccountData();
                 }
@@ -327,7 +331,8 @@ async function vaultAsyncSwapProcessInitiate()
             {
                 var failString = "Token swap process failed, please try again...!!!";
                 document.getElementById("vaultTransferMsg").innerHTML = failString;                            
-                document.getElementById("vaultSwapProcess").disabled = true;
+                document.getElementById("vaultHiveSwapProcess").disabled = true;
+                document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
                 await timeout(TIMEOUT);
                 await refreshAccountData();
             }            
@@ -336,14 +341,130 @@ async function vaultAsyncSwapProcessInitiate()
         {
             var failString = "Token swap process failed, please try again...!!!";
             document.getElementById("vaultTransferMsg").innerHTML = failString;                            
-            document.getElementById("vaultSwapProcess").disabled = true;
+            document.getElementById("vaultHiveSwapProcess").disabled = true;
+            document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
             await timeout(TIMEOUT);
             await refreshAccountData();
         }
     }
     catch(error)
     {
-        console.log("Error at vaultAsyncSwapProcessInitiate() : ", error);
+        console.log("Error at vaultAsyncHiveSwapProcessInitiate() : ", error);
+    }
+}
+
+async function vaultAsyncSwapHiveSwapProcessInitiate()
+{
+    try
+    {
+        $('.vaultSwapHiveSwapProcessClass').addClass('loading');
+        setTimeout(function () { 
+            $('.vaultSwapHiveSwapProcessClass').removeClass('loading');
+        }, REFRESHTIMEOUT);
+
+        var ratio = 10;
+        var swapHiveBalance = 0.0;
+        var swapTo = "hiveupme";
+        var swapSymbol = "VAULT";
+        var swapUsername = document.getElementById("getHiveUserName").value.toLowerCase().trim();
+        var swapAmount = document.getElementById("goVault").value;
+        swapAmount = parseFloat(swapAmount) || 0.0;
+        swapAmount = Math.floor(swapAmount * DECIMAL) / DECIMAL; 
+        swapAmount = parseFloat(swapAmount) || 0.0;      
+        
+        var swapMemo = "Swapping To Swap.Hive";
+        
+        await timeout(REFRESHTIMEOUT);
+        let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': swapUsername, 'symbol': swapSymbol});
+        if(swapHiveData != null)
+        {        
+            swapHiveBalance = parseFloat(swapHiveData.balance) || 0.0;
+            swapHiveBalance = Math.floor(swapHiveBalance * DECIMAL) / DECIMAL;
+            swapHiveBalance = parseFloat(swapHiveBalance) || 0.0;
+            if(swapHiveBalance >= swapAmount && swapAmount >= MINTOKEN)
+            {
+                let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [[swapTo]]);
+                if(hiveData.length > 0)
+                {        
+                    hiveBalance = parseFloat(hiveData[0].balance.replace("HIVE", "").trim()) || 0.0;
+                    hiveBalance = hiveBalance * ratio;
+                    if(hiveBalance >= swapAmount)
+                    {
+                        swapAmount = swapAmount.toFixed(3);
+                        var myFuncAsync = (swapUsername, swapTo, swapAmount, swapMemo, swapSymbol) => {
+                            return new Promise((resolve, reject) => {
+                                hive_keychain.requestCustomJson(swapUsername, "ssc-mainnet-hive", "Active", JSON.stringify({"contractName":"tokens", "contractAction":"transfer", "contractPayload":{"to":swapTo, "symbol":swapSymbol, "quantity":swapAmount, "memo": swapMemo}}), "Send Tokens", (result, error) => {                    
+                                    if (error) reject(new Error(error))
+                                    resolve(result)
+                                });
+                            });
+                        }
+
+                        var asyncData = await myFuncAsync(swapUsername, swapTo, swapAmount, swapMemo, swapSymbol);
+                        if(asyncData["success"] == true)
+                        {
+                            var successString = "You sent : " + swapAmount + " " + swapSymbol + " to : @" + swapTo + " successfully...!!!";
+                            document.getElementById("vaultTransferMsg").innerHTML = successString;                           
+                            document.getElementById("vaultHiveSwapProcess").disabled = true;
+                            document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
+                            await timeout(TIMEOUT);
+                            document.getElementById("goVault").value = "";
+                            document.getElementById("goVault").placeholder = "Swap Amount...";
+                            await refreshAccountData();
+                        }
+                        else
+                        {
+                            var failString = "Token swap process failed, please try again...!!!";
+                            document.getElementById("vaultTransferMsg").innerHTML = failString;                            
+                            document.getElementById("vaultHiveSwapProcess").disabled = true;
+                            document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
+                            await timeout(TIMEOUT);
+                            await refreshAccountData();
+                        }
+                    }
+                    else
+                    {
+                        var failString = "Token swap process failed, please try again...!!!";
+                        document.getElementById("vaultTransferMsg").innerHTML = failString;                            
+                        document.getElementById("vaultHiveSwapProcess").disabled = true;
+                        document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
+                        await timeout(TIMEOUT);
+                        await refreshAccountData();
+                    }
+                }
+                else
+                {
+                    var failString = "Token swap process failed, please try again...!!!";
+                    document.getElementById("vaultTransferMsg").innerHTML = failString;                            
+                    document.getElementById("vaultHiveSwapProcess").disabled = true;
+                    document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
+                    await timeout(TIMEOUT);
+                    await refreshAccountData();
+                }
+            }
+            else
+            {
+                var failString = "Token swap process failed, please try again...!!!";
+                document.getElementById("vaultTransferMsg").innerHTML = failString;                            
+                document.getElementById("vaultHiveSwapProcess").disabled = true;
+                document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
+                await timeout(TIMEOUT);
+                await refreshAccountData();
+            }            
+        }
+        else
+        {
+            var failString = "Token swap process failed, please try again...!!!";
+            document.getElementById("vaultTransferMsg").innerHTML = failString;                            
+            document.getElementById("vaultHiveSwapProcess").disabled = true;
+            document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
+            await timeout(TIMEOUT);
+            await refreshAccountData();
+        }
+    }
+    catch(error)
+    {
+        console.log("Error at vaultAsyncSwapHiveSwapProcessInitiate() : ", error);
     }
 }
 

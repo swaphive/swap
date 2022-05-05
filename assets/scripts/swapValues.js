@@ -321,11 +321,13 @@ async function enableVaultButton() {
 
         if(swapAmount >= 1.0 && hiveBalance >= swapAmount)
         {
-            document.getElementById("vaultSwapProcess").disabled = false;
+            document.getElementById("vaultHiveSwapProcess").disabled = false;
+            document.getElementById("vaultSwapHiveSwapProcess").disabled = false;
         }
         else
         {
-            document.getElementById("vaultSwapProcess").disabled = true;
+            document.getElementById("vaultHiveSwapProcess").disabled = true;
+            document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
         }
     } 
     catch (error) 

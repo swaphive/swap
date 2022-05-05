@@ -141,7 +141,8 @@ async function hideSwapButtons()
     {
         document.getElementById("hiveSwapProcess").disabled = true;
         document.getElementById("swaphiveSwapProcess").disabled = true;
-        document.getElementById("vaultSwapProcess").disabled = true;
+        document.getElementById("vaultHiveSwapProcess").disabled = true;
+        document.getElementById("vaultSwapHiveSwapProcess").disabled = true;
     } 
     catch (error) 
     {
