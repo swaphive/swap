@@ -18,12 +18,29 @@ body, html {
 .row {
     background-color: #1e1e1e;
     overflow: hidden;
-    padding: 1% 0 0 1%;
+    padding: 1% 1% 1% 1%;
 }
 
 .headercol1 {
-    width: 40%;
+    width: 100%;
     display:inline-block;
+    height: 100px;    
+    padding-top: 1%;
+}
+
+.headercol1logo {  
+    text-align: center;
+    margin: auto;
+}
+
+.headercol1text {
+    text-align: center;
+    margin: auto;
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
 }
 
 .headercol2, .headercol3 {
@@ -65,6 +82,17 @@ body, html {
     padding: 1%;
 }
 
+.col4row {
+    background-color: #b40018;
+    overflow: hidden;
+    padding: 1%;
+}
+
+.col4rowcol1 {
+    display:inline-block;
+    width: 40%;
+}
+
 .row1col {
     background-color: #1e1e1e;
     overflow: hidden;
@@ -81,15 +109,15 @@ body, html {
 
 .row1col1 {
     width: 99%;
-    background-color: #272727;
+    background-color: #1e1e1e;
     display:inline-block;
     float: left;
-    height: 90px;
+    height: 125px;
     text-align: right;
     font-size: 10pt;
     padding-top: 1%;
     padding-left: 1%;
-    padding-bottom: 1%;
+    padding-bottom: 3%;
 }
 
 .row1col3 {
