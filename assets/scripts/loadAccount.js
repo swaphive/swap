@@ -1,4 +1,4 @@
-const ssc = new SSC('https://https://api.primersion.com/');
+const ssc = new SSC('https://api2.hive-engine.com/rpc/');
 
 var DECIMAL = 1000;
 var rewardSplitPercentage = 15;
