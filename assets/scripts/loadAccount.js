@@ -1,4 +1,4 @@
-const ssc = new SSC('https://api2.hive-engine.com/rpc/');
+const ssc = new SSC('https://ha.herpc.dtools.dev');
 
 var DECIMAL = 1000;
 var rewardSplitPercentage = 15;
