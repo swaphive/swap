@@ -33,7 +33,7 @@ async function hiveAsyncSwapProcessInitiate()
         }, REFRESHTIMEOUT);
 
         var hiveBalance = 0.0;
-        var swapTo = "hiveupme";
+        var swapTo = "uswap";
         var swapSymbol = "HIVE";
         var swapUsername = document.getElementById("getHiveUserName").value.toLowerCase().trim();
         var swapAmount = document.getElementById("goHive").value;
@@ -141,7 +141,7 @@ async function swaphiveAsyncSwapProcessInitiate()
         }, REFRESHTIMEOUT);
 
         var swapHiveBalance = 0.0;
-        var swapTo = "hiveupme";
+        var swapTo = "uswap";
         var swapSymbol = "SWAP.HIVE";
         var swapUsername = document.getElementById("getHiveUserName").value.toLowerCase().trim();
         var swapAmount = document.getElementById("goSwapHive").value;
@@ -249,7 +249,7 @@ async function vaultAsyncHiveSwapProcessInitiate()
 
         var ratio = 10;
         var swapHiveBalance = 0.0;
-        var swapTo = "hiveupme";
+        var swapTo = "uswap";
         var swapSymbol = "VAULT";
         var swapUsername = document.getElementById("getHiveUserName").value.toLowerCase().trim();
         var swapAmount = document.getElementById("goVault").value;
@@ -364,7 +364,7 @@ async function vaultAsyncSwapHiveSwapProcessInitiate()
 
         var ratio = 10;
         var swapHiveBalance = 0.0;
-        var swapTo = "hiveupme";
+        var swapTo = "uswap";
         var swapSymbol = "VAULT";
         var swapUsername = document.getElementById("getHiveUserName").value.toLowerCase().trim();
         var swapAmount = document.getElementById("goVault").value;

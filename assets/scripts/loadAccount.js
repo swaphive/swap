@@ -29,7 +29,7 @@ async function loadRewardPercentages() {
 async function swapHiveAccDetails () {
     try
     {
-        let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': 'hiveupme', 'symbol': 'SWAP.HIVE'});
+        let swapHiveData = await ssc.findOne('tokens', 'balances', {'account': 'uswap', 'symbol': 'SWAP.HIVE'});
         if(swapHiveData != null)
         {        
             var swapHiveBalance = parseFloat(swapHiveData.balance) || 0.0;
@@ -50,7 +50,7 @@ async function swapHiveAccDetails () {
 async function hiveAccDetails () {
     try 
     {
-        let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [['hiveupme']]);
+        let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [['uswap']]);
         if(hiveData.length > 0)
         {        
             var hiveBalance = parseFloat(hiveData[0].balance.replace("HIVE", "").trim()) || 0.0;
