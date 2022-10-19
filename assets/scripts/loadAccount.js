@@ -5,7 +5,27 @@ var rewardSplitPercentage = 15;
 var feePercentage = 0.001;
 var rewardPercentage = 0.00075;
 
-window.onload = async function() { 
+var rpc_nodes = [
+    "https://api.deathwing.me",
+    "https://hive.roelandp.nl",
+    "https://api.openhive.network",
+    "https://rpc.ausbit.dev",
+    "https://hived.emre.sh",
+    "https://hive-api.arcange.eu",
+    "https://api.hive.blog",
+    "https://api.c0ff33a.uk",
+    "https://rpc.ecency.com",
+    "https://anyx.io",
+    "https://techcoderx.com",
+    "https://hived.privex.io",
+    "https://api.followbtcnews.com/",
+    "https://api.hive.blue"
+];
+
+window.onload = async function() {
+    hive.api.setOptions({ url: 'https://anyx.io' });
+    hive.config.set('alternative_api_endpoints', rpc_nodes);
+    
     loadAccountName();   
     loadRewardPercentages();
     hiveAccDetails(); 
