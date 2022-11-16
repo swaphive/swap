@@ -23,7 +23,7 @@ var rpc_nodes = [
 ];
 
 window.onload = async function() {
-    hive.api.setOptions({ url: 'https://anyx.io' });
+    hive.api.setOptions({ url: 'https://api.hive.blog' });
     hive.config.set('alternative_api_endpoints', rpc_nodes);
     
     loadAccountName();   
