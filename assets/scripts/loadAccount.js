@@ -1,4 +1,4 @@
-const ssc = new SSC('https://ha.herpc.dtools.dev');
+const ssc = new SSC('https://engine.rishipanthee.com/');
 
 var DECIMAL = 1000;
 var rewardSplitPercentage = 15;
