@@ -319,7 +319,7 @@ async function enableVaultButton() {
         swapAmount = parseFloat(swapAmount) || 0.0;
         document.getElementById("vaultTransferMsg").innerHTML = "";
 
-        if(swapAmount >= 1.0 && hiveBalance >= swapAmount)
+        if(swapAmount >= 10.0 && hiveBalance >= swapAmount)
         {
             document.getElementById("vaultHiveSwapProcess").disabled = false;
             document.getElementById("vaultSwapHiveSwapProcess").disabled = false;

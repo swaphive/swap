@@ -1,4 +1,5 @@
 var MINTOKEN = 1.0;
+var VAULTMINTOKEN = 10.0;
 var TIMEOUT = 15000;
 var REFRESHTIMEOUT = 10000;
 
@@ -266,7 +267,7 @@ async function vaultAsyncHiveSwapProcessInitiate()
             swapHiveBalance = parseFloat(swapHiveData.balance) || 0.0;
             swapHiveBalance = Math.floor(swapHiveBalance * DECIMAL) / DECIMAL;
             swapHiveBalance = parseFloat(swapHiveBalance) || 0.0;
-            if(swapHiveBalance >= swapAmount && swapAmount >= MINTOKEN)
+            if(swapHiveBalance >= swapAmount && swapAmount >= VAULTMINTOKEN)
             {
                 let hiveData = await hive.api.callAsync('condenser_api.get_accounts', [[swapTo]]);
                 if(hiveData.length > 0)
@@ -381,7 +382,7 @@ async function vaultAsyncSwapHiveSwapProcessInitiate()
             swapHiveBalance = parseFloat(swapHiveData.balance) || 0.0;
             swapHiveBalance = Math.floor(swapHiveBalance * DECIMAL) / DECIMAL;
             swapHiveBalance = parseFloat(swapHiveBalance) || 0.0;
-            if(swapHiveBalance >= swapAmount && swapAmount >= MINTOKEN)
+            if(swapHiveBalance >= swapAmount && swapAmount >= VAULTMINTOKEN)
             {
                 let hiveData = await ssc.findOne('tokens', 'balances', {'account': swapTo, 'symbol': 'SWAP.HIVE'});
                 if(hiveData != null)
